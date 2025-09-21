@@ -1,11 +1,64 @@
 import express from "express";
 import WebSocket, { WebSocketServer } from "ws";
 import { v4 as uuidv4 } from "uuid";
+import dotenv from "dotenv";
+import rateLimit from "express-rate-limit";
+import cors from "cors";
+
+dotenv.config()
 
 const app = express();
 
-const httpServer = app.listen(8080, () => {
-  console.log("App is listening on post 8080");
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'https://globalchat.billiondollardevs.com',
+    'http://localhost:5173'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Rate limiting configuration
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: {
+    error: 'Too many requests from this IP, please try again later.',
+    retryAfter: '15 minutes'
+  },
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// Apply rate limiting to all requests
+app.use(limiter);
+
+// Basic health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    onlineUsers: clients.size 
+  });
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Global Chat WebSocket Server',
+    status: 'running',
+    onlineUsers: clients.size
+  });
+});
+
+const PORT = process.env.PORT
+
+const httpServer = app.listen(PORT, () => {
+  console.log("App is listening on port", PORT);
 });
 
 const wss = new WebSocketServer({ server: httpServer });
