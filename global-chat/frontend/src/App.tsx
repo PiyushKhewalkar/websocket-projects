@@ -51,7 +51,7 @@ function App() {
   }
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8080")
+    const ws = new WebSocket("wss://global-chat-backend-91mq.onrender.com")
 
     ws.onopen = () => {
       setSocket(ws)
@@ -196,7 +196,7 @@ function App() {
       </div>
 
       {/* Messages container with proper scrolling */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-2 relative z-10 scrollbar-hide w-full max-w-full chat-messages-container">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-2 relative z-10 w-full max-w-full chat-messages-container">
         {messages.map((msg, index) => (
           <div key={index} className={`${msg.type === "system" ? 'text-[#33CD32]/70' : 'text-[#33CD32]'} group w-full`}>
             {msg.type === "system" ? (

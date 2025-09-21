@@ -83,39 +83,7 @@
   100% { background-position: 50px 50px, 50px 50px; }
 }
 
-/* Cyberpunk scrollbar */
-.scrollbar-thin {
-  scrollbar-width: thin;
-  scrollbar-color: #33CD32 transparent;
-}
-
-.scrollbar-thin::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #33CD32;
-  border-radius: 4px;
-  opacity: 0.3;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  opacity: 0.6;
-}
-
-/* Hide scrollbar completely */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Safari and Chrome */
-}
+/* All scrollbars are now hidden globally in index.css */
 
 /* Holographic effect for buttons */
 .holographic {

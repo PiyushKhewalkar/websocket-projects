@@ -24,23 +24,14 @@ html, body, #root {
   max-width: 100%;
 }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
+/* Hide all scrollbars globally */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #33CD32;
-  border-radius: 4px;
-  opacity: 0.3;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  opacity: 0.6;
+*::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 /* Selection styling */
