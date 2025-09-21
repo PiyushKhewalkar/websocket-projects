@@ -5,8 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  define: {
-    // Ensure environment variables are available at build time
-    'import.meta.env.VITE_WEBSOCKET_URL': JSON.stringify(process.env.VITE_WEBSOCKET_URL)
-  }
+  // Vite automatically handles VITE_ prefixed environment variables
+  // No need for manual define configuration
 })
