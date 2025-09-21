@@ -160,7 +160,7 @@ function App() {
   }
 
   return (
-    <div className='bg-[#0A0A0A] h-90] flex flex-col font-mono relative overflow-hidden w-full max-w-full'>
+    <div className='bg-[#0A0A0A] h-[90vh] flex flex-col font-mono relative overflow-hidden w-full max-w-full'>
       {/* Matrix rain background effect */}
       <div className="matrix-rain opacity-5"></div>
       
