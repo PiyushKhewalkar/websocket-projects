@@ -96,7 +96,7 @@ function App() {
 
   if (!socket) {
     return (
-      <div className="bg-[#0A0A0A] h-[90vh] flex items-center justify-center relative overflow-hidden">
+      <div className="bg-[#0A0A0A] md:h-[100vh] h-[90vh] flex items-center justify-center relative overflow-hidden">
         <div className="matrix-rain opacity-10"></div>
         <div className="text-center relative z-10">
           <div className="text-[#33CD32] text-2xl font-mono robotic-pulse cyber-glow-text">
@@ -117,7 +117,7 @@ function App() {
 
   if (!localStorage.getItem("username")) {
     return (
-      <div className="bg-[#0A0A0A] h-[90vh] flex items-center justify-center relative overflow-hidden">
+      <div className="bg-[#0A0A0A] md:h-[100vh] h-[90vh] flex items-center justify-center relative overflow-hidden">
         <div className="matrix-rain opacity-5"></div>
         <div className="text-center max-w-md w-full p-6 relative z-10">
           <div className="text-[#33CD32] text-3xl font-mono mb-8" data-text="[AUTH_REQUIRED]">
@@ -160,7 +160,7 @@ function App() {
   }
 
   return (
-    <div className='bg-[#0A0A0A] h-[90vh] flex flex-col font-mono relative overflow-hidden w-full max-w-full'>
+    <div className='bg-[#0A0A0A] md:h-[100vh] h-[90vh] flex flex-col font-mono relative overflow-hidden w-full max-w-full'>
       {/* Matrix rain background effect */}
       <div className="matrix-rain opacity-5"></div>
       
