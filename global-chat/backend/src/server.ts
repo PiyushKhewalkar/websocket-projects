@@ -147,6 +147,4 @@ wss.on("connection", function connection(socket) {
     }
   });
 
-  socket.send(JSON.stringify({ type: "system", message: "Hello from socket server" }));
-
 });
