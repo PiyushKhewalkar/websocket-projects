@@ -118,44 +118,46 @@ function App() {
   if (!localStorage.getItem("username")) {
     return (
       <div className="bg-[#0A0A0A] md:h-[100vh] h-[90vh] flex items-center justify-center relative overflow-hidden">
-        <div className="matrix-rain opacity-5"></div>
-        <div className="text-center md:max-w-[500px] w-full p-6 relative z-10">
-          <div className="text-[#33CD32] text-3xl font-mono mb-8" data-text="[AUTH_REQUIRED]">
-            [AUTH_REQUIRED]
-          </div>
-          <div className="text-[#33CD32]/80 text-lg font-mono mb-6 terminal-cursor">
-            Enter your username to access the global chat network
-          </div>
-          {onlineUsers > 0 && (
-            <div className="text-[#33CD32]/60 text-sm font-mono mb-4">
-              {onlineUsers} user{onlineUsers !== 1 ? 's' : ''} currently online
-            </div>
-          )}
-          <div className="space-y-4">
-            <input 
-              className="w-full bg-[#0A0A0A] border-2 border-[#33CD32] text-[#33CD32] p-3 font-mono focus:outline-none focus:border-[#33CD32]/80 focus:shadow-[0_0_10px_#33CD32/30] transition-all duration-300 terminal-cursor" 
-              type="text" 
-              placeholder="[USERNAME]"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && socket.send(JSON.stringify({type: "register", "username":username}))}
-            />
-            <button 
-              className="w-full bg-[#33CD32] text-black py-3 px-6 font-mono font-bold hover:bg-[#33CD32]/80 hover:shadow-[0_0_15px_#33CD32/50] transition-all duration-300 transform hover:scale-105 holographic" 
-              onClick={() => socket.send(JSON.stringify({type: "register", "username":username}))}
-            >
-              [CONNECT]
-            </button>
-          </div>
-          <div className="mt-6 text-[#33CD32]/40 text-xs">
-            <div className="flex justify-center space-x-4">
-              <span>SECURE CONNECTION</span>
-              <span>•</span>
-              <span>ENCRYPTED</span>
-            </div>
-          </div>
-        </div>
+  <div className="matrix-rain opacity-5"></div>
+
+  <div className="text-center w-auto max-w-[500px] p-6 relative z-10">
+    <div className="text-[#33CD32] text-3xl font-mono mb-8" data-text="[AUTH_REQUIRED]">
+      [AUTH_REQUIRED]
+    </div>
+    <div className="text-[#33CD32]/80 text-lg font-mono mb-6 terminal-cursor">
+      Enter your username to access the global chat network
+    </div>
+    {onlineUsers > 0 && (
+      <div className="text-[#33CD32]/60 text-sm font-mono mb-4">
+        {onlineUsers} user{onlineUsers !== 1 ? 's' : ''} currently online
       </div>
+    )}
+    <div className="space-y-4">
+      <input 
+        className="w-full bg-[#0A0A0A] border-2 border-[#33CD32] text-[#33CD32] p-3 font-mono focus:outline-none focus:border-[#33CD32]/80 focus:shadow-[0_0_10px_#33CD32/30] transition-all duration-300 terminal-cursor" 
+        type="text" 
+        placeholder="[USERNAME]"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        onKeyPress={(e) => e.key === 'Enter' && socket.send(JSON.stringify({type: "register", "username":username}))}
+      />
+      <button 
+        className="w-full bg-[#33CD32] text-black py-3 px-6 font-mono font-bold hover:bg-[#33CD32]/80 hover:shadow-[0_0_15px_#33CD32/50] transition-all duration-300 transform hover:scale-105 holographic" 
+        onClick={() => socket.send(JSON.stringify({type: "register", "username":username}))}
+      >
+        [CONNECT]
+      </button>
+    </div>
+    <div className="mt-6 text-[#33CD32]/40 text-xs">
+      <div className="flex justify-center space-x-4">
+        <span>SECURE CONNECTION</span>
+        <span>•</span>
+        <span>ENCRYPTED</span>
+      </div>
+    </div>
+  </div>
+</div>
+
     )
   }
 
