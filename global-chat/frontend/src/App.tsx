@@ -51,7 +51,7 @@ function App() {
   }
 
   useEffect(() => {
-    const ws = new WebSocket("wss://global-chat-backend-91mq.onrender.com")
+    const ws = new WebSocket(import.meta.env.VITE_WEBSOCKET_URL || "wss://global-chat-backend-91mq.onrender.com")
 
     ws.onopen = () => {
       setSocket(ws)
@@ -119,7 +119,7 @@ function App() {
     return (
       <div className="bg-[#0A0A0A] md:h-[100vh] h-[90vh] flex items-center justify-center relative overflow-hidden">
         <div className="matrix-rain opacity-5"></div>
-        <div className="text-center max-w-md w-full p-6 relative z-10">
+        <div className="text-center md:max-w-[500px] w-full p-6 relative z-10">
           <div className="text-[#33CD32] text-3xl font-mono mb-8" data-text="[AUTH_REQUIRED]">
             [AUTH_REQUIRED]
           </div>
